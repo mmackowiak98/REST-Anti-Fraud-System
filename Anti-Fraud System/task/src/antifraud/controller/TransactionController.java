@@ -1,6 +1,5 @@
 package antifraud.controller;
 
-import antifraud.enums.TransactionType;
 import antifraud.model.transaction.TransactionRequest;
 import antifraud.model.transaction.TransactionResponse;
 import antifraud.service.TransactionService;
@@ -22,8 +21,7 @@ public class TransactionController {
     @PreAuthorize("hasRole('MERCHANT')")
     @PostMapping("/transaction")
     public TransactionResponse getTransactionType(@Valid @RequestBody TransactionRequest t) {
-        final TransactionType transactionType = transactionService.checkTransaction(t);
-        return new TransactionResponse(transactionType);
+        return transactionService.checkTransaction(t);
     }
 
 

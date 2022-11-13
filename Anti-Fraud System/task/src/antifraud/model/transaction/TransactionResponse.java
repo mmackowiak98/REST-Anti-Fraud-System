@@ -6,5 +6,6 @@ import lombok.Value;
 @Value
 public class TransactionResponse {
     TransactionType result;
+    String info;
 
 }
