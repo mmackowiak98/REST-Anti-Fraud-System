@@ -1,8 +1,7 @@
 package antifraud.service;
 
 import antifraud.TransactionType;
-import antifraud.exceptions.WrongAmountException;
-import antifraud.model.TransactionRequest;
+import antifraud.model.transaction.TransactionRequest;
 import org.springframework.stereotype.Service;
 
 @Service

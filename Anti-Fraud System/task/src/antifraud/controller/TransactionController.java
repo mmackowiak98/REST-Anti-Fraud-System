@@ -1,8 +1,8 @@
 package antifraud.controller;
 
 import antifraud.TransactionType;
-import antifraud.model.TransactionRequest;
-import antifraud.model.TransactionResponse;
+import antifraud.model.transaction.TransactionRequest;
+import antifraud.model.transaction.TransactionResponse;
 import antifraud.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

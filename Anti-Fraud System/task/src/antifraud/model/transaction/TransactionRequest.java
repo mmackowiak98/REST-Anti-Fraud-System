@@ -1,4 +1,4 @@
-package antifraud.model;
+package antifraud.model.transaction;
 
 
 import lombok.Data;
