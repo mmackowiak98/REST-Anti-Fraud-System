@@ -1,10 +1,11 @@
 package antifraud.controller;
 
-import antifraud.TransactionType;
+import antifraud.enums.TransactionType;
 import antifraud.model.transaction.TransactionRequest;
 import antifraud.model.transaction.TransactionResponse;
 import antifraud.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ public class TransactionController {
     TransactionService transactionService;
 
 
+    @PreAuthorize("hasRole('MERCHANT')")
     @PostMapping("/transaction")
     public TransactionResponse getTransactionType(@Valid @RequestBody TransactionRequest t) {
         final TransactionType transactionType = transactionService.checkTransaction(t);

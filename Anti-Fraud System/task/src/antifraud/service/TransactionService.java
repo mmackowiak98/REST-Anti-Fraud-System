@@ -1,6 +1,6 @@
 package antifraud.service;
 
-import antifraud.TransactionType;
+import antifraud.enums.TransactionType;
 import antifraud.model.transaction.TransactionRequest;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,11 @@
-package antifraud.model;
+package antifraud.model.status;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Status {
+public class DeleteStatus {
     String username;
     String status;
 }

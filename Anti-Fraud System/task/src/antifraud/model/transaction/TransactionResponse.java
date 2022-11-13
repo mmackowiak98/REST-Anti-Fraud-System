@@ -1,6 +1,6 @@
 package antifraud.model.transaction;
 
-import antifraud.TransactionType;
+import antifraud.enums.TransactionType;
 import lombok.Value;
 
 @Value
