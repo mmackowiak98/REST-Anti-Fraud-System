@@ -1,13 +1,14 @@
 package antifraud.validator.ip;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class IpAddressValidator implements ConstraintValidator<IpAddressConstraint,String> {
-    private static final String IPV4_PATTERN_ALLOW_LEADING_ZERO =
-            "^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\\.(?!$)|$)){4}$";
 
 
     @Override
@@ -17,13 +18,9 @@ public class IpAddressValidator implements ConstraintValidator<IpAddressConstrai
 
     @Override
     public boolean isValid(String ipAddress, ConstraintValidatorContext context) {
-        Pattern pattern = Pattern.compile(IPV4_PATTERN_ALLOW_LEADING_ZERO);
-        if(ipAddress!=null) {
-            final String trimmedIpAddress = ipAddress.trim();
-            Matcher matcher = pattern.matcher(trimmedIpAddress);
-            return matcher.matches();
-        }
-        return false;
+        if (ipAddress==null || !ipAddress.matches("^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$") ) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }else return true;
     }
 
 }

@@ -31,10 +31,7 @@ public class StolenCardsController {
     @PreAuthorize("hasRole('SUPPORT')")
     @DeleteMapping({"/stolencard/{number}", "/stolencard"})
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity deleteCard(@PathVariable(required = false) String number){
-        if(number.equals("400000330506103")){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity deleteCard(@PathVariable(required = false) @Valid String number){
         cardService.deleteStolenCard(number);
         return ResponseEntity.ok(new CardDeleteStatus(number));
     }

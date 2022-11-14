@@ -6,9 +6,8 @@ import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 import java.lang.annotation.*;
 
-@Pattern(regexp = "((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.){3}(25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)")
 @Documented
-@Constraint(validatedBy = {})
+@Constraint(validatedBy = {IpAddressValidator.class})
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IpAddressConstraint {

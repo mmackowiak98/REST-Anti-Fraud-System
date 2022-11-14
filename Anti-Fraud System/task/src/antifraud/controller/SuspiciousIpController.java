@@ -31,10 +31,7 @@ public class SuspiciousIpController {
     @PreAuthorize("hasRole('SUPPORT')")
     @DeleteMapping({"/suspicious-ip/{ip}","/suspicious-ip"})
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity deleteIp(@Valid @PathVariable(required = false) String ip){
-        if(ip.equals("192.168.1.")){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    public ResponseEntity deleteIp(@PathVariable(required = false) @Valid String ip){
         ipService.deleteIp(ip);
         return ResponseEntity.ok(new IpDeleteStatus(ip));
     }

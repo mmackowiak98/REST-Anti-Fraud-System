@@ -26,6 +26,9 @@ public class IpService {
     }
 
     public void deleteIp(String ip) {
+        if(ip.endsWith(".")){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
         final IP ipToDelete = ipRepository.getByIpIgnoreCase(ip)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 

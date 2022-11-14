@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-
+import javax.validation.constraints.NotEmpty;
 @Entity
 @Getter
 @NoArgsConstructor
@@ -19,7 +17,7 @@ public class IP {
     @GeneratedValue
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     Long id;
-    @NotNull
+    @NotEmpty
     @IpAddressConstraint
     String ip;
 }

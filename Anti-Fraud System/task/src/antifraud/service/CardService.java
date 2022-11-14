@@ -27,10 +27,13 @@ public class CardService {
     }
 
     public void deleteStolenCard(String number) {
+        if(number.length()<16){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
         final StolenCard stolenCard = cardRepository.findByNumber(number)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        cardRepository.deleteByNumber(number);
+        cardRepository.deleteByNumber(stolenCard.getNumber());
     }
 
     public List<StolenCard> getAllCard() {

@@ -16,16 +16,10 @@ public class CardNumberValidator implements ConstraintValidator<CardNumberConstr
 
     @Override
     public boolean isValid(String cardNumber, ConstraintValidatorContext context) {
-        if(cardNumber!=null) {
-            if(cardNumber.length()<16){
-                return false;
-            }
-            final String trimmedCardNumber = cardNumber.trim();
-            log.info("{},{}", cardNumber, cardValidation(trimmedCardNumber));
-                return cardValidation(cardNumber);
-            }
-
-        return false;
+        if (cardNumber == null) {
+            return false;
+        } else
+            return cardValidation(cardNumber);
     }
 
     private boolean cardValidation(String cardNumber) {
