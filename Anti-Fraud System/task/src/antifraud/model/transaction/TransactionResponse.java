@@ -1,11 +1,12 @@
 package antifraud.model.transaction;
 
 import antifraud.enums.TransactionType;
-import lombok.Value;
+import lombok.*;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TransactionResponse {
     TransactionType result;
     String info;
-
 }

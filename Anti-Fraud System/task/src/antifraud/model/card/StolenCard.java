@@ -2,6 +2,7 @@ package antifraud.model.card;
 
 import antifraud.validator.card.CardNumberConstraint;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode
 public class StolenCard {
     @Id
     @GeneratedValue

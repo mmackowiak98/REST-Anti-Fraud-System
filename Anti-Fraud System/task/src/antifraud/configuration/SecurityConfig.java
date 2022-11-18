@@ -46,7 +46,9 @@ public class SecurityConfig {
                 .authorizeRequests(c -> c
                         .mvcMatchers(HttpMethod.POST, "/api/auth/user").permitAll()
                         .mvcMatchers("/actuator/shutdown").permitAll()
-                        .anyRequest().authenticated())
+//                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
+                       )
                 .sessionManagement(c -> c.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         // no session
 
